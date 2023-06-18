@@ -1,0 +1,202 @@
+
+body{
+
+    
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    margin: 0;
+    font-weight: 600;
+
+}
+
+
+    /* ------ HEADER/NAV AND FOOTER ------  */
+
+header{
+    display: flex;
+    justify-content: center;
+    background-color: #fff300;
+    padding: 0.25rem 0.5rem;
+   
+ 
+   
+   
+}
+
+header #logo{
+
+    display: flex;
+    
+    margin-right: 200px;
+    width: 10%;
+    max-width: 100%;
+    height: auto;
+
+    
+ 
+
+}
+
+@media only screen and (max-width: 768px) {
+    header #logo{
+    margin:0;
+    width: 15%;}
+
+    nav{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header{
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+    
+  }
+  
+  nav > a {
+    color: #1b1e22;
+    text-decoration: none;
+    margin-right: 10px;
+    padding: 5px;
+  }
+  
+  nav > a:hover {
+    background-color: #FFF764;
+  }
+
+ footer{
+
+    display: flex;
+    background-color: #fff300;
+    padding: 0.25rem 0.5rem;
+   height:20px;
+   width:100%;
+
+
+ }
+
+     /* ------ ARTICLES ------  */
+
+    
+section > h2 {
+
+
+        font-size: 10px;
+        color:grey;
+    
+}
+
+section{
+
+    margin: 0 auto;
+    max-width: 800px;
+ 
+    display:flex;
+    flex-direction: column;
+}
+
+article > img{
+
+    width:200px;
+    height:100px;
+
+
+}
+
+
+article > a {
+    color: #1b1e22;
+    text-decoration: none;
+
+  }
+  
+  article > a:hover {
+   
+    text-decoration: underline;
+    text-decoration-color: yellow;
+
+  }
+
+
+section#musica > h1{
+
+    background-color: #F263A3;
+    color:white;
+    padding:7px;
+
+}
+
+
+section#deportes > h1{
+
+    background-color: #44C846;
+    color:white;
+    padding:7px;
+
+}
+
+.flex-container{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+
+}
+
+article{
+
+    display:flex;
+    flex-direction: column;
+    max-width: 200px;
+
+}
+
+
+ /* ------ FORMA ------  */
+
+ form{
+
+    max-width: 400px;
+    display:flex;
+    flex-direction: column;
+    margin: 30px auto;
+ }
+
+.form-item{
+
+    margin: 10px;
+   
+
+}
+
+
+
+
+section.clanak > h2 {
+
+
+    font-size: 10px;
+        color:grey;
+
+}
+
+
+article.content{
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+article.about{
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
