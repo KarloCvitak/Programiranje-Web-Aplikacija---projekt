@@ -39,9 +39,9 @@ mysqli_close($dbc);
         <img src="slike/logo.png" id="logo" alt="logo">
 
         <nav>
-            <a>HOME</a>
-            <a>MÚSICA</a>
-            <a>DEPORTES</a>
+            <a href="index.php">HOME</a>
+            <a href="kategorija.php?id=MÚSICA">MÚSICA</a>
+            <a href="kategorija.php?id=DEPORTES">DEPORTES</a>
             <a>ADMINISTRACIJA</a>
         </nav>
 
