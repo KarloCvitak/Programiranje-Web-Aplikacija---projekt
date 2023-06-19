@@ -42,10 +42,12 @@ $image = "slike/image.jpg";
         <img src="slike/logo.png" id="logo" alt="logo">
 
         <nav>
-            <a href="index.html">HOME</a>
-            <a>MÚSICA</a>
-            <a>DEPORTES</a>
-            <a>ADMINISTRACIJA</a>
+            <a href="index.php">HOME</a>
+            <a href="kategorija.php?id=MÚSICA">MÚSICA</a>
+            <a href="kategorija.php?id=DEPORTES">DEPORTES</a>
+            <a href="administracija.php">ADMINISTRACIJA</a>
+            <a href="unos.html">UNOS</a>
+
         </nav>
 
     </header>

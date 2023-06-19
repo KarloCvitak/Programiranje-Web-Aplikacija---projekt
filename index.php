@@ -19,17 +19,19 @@ define('UPLPATH', 'slike/');
         <img src="slike/logo.png" id="logo" alt="logo">
 
         <nav>
-            <a>HOME</a>
-            <a>MÚSICA</a>
-            <a>DEPORTES</a>
-            <a>ADMINISTRACIJA</a>
+            <a href="index.php">HOME</a>
+            <a href="kategorija.php?id=MÚSICA">MÚSICA</a>
+            <a href="kategorija.php?id=DEPORTES">DEPORTES</a>
+            <a href="administracija.php">ADMINISTRACIJA</a>
+            <a href="unos.html">UNOS</a>
+
         </nav>
 
     </header>
  
 
     <!-- musica -->
-    <section id="musica">
+    <section id="música">
 
       
         <h1>MÚSICA</h1>
@@ -37,7 +39,7 @@ define('UPLPATH', 'slike/');
 
         <div class="flex-container">
         <?php
-            $query = "SELECT * FROM vijesti WHERE arhiva=0 AND kategorija='MÚSICA' LIMIT 4";
+            $query = "SELECT * FROM vijesti WHERE arhiva=0 AND kategorija='MÚSICA' ORDER BY id DESC LIMIT 3";
             $result = mysqli_query($dbc, $query);
             $i=0;
             while($row = mysqli_fetch_array($result)) {
@@ -69,7 +71,7 @@ define('UPLPATH', 'slike/');
       
         <div class="flex-container">
         <?php
-            $query = "SELECT * FROM vijesti WHERE arhiva=0 AND kategorija='DEPORTES' LIMIT 4";
+            $query = "SELECT * FROM vijesti WHERE arhiva=0 AND kategorija='DEPORTES' LIMIT 3";
             $result = mysqli_query($dbc, $query);
             $i=0;
             while($row = mysqli_fetch_array($result)) {
