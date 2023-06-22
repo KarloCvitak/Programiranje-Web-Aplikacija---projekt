@@ -178,7 +178,7 @@ section#deportes > div.flex-container-line > h1{
 .flex-container{
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 

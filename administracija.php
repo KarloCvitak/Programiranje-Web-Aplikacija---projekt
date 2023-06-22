@@ -120,7 +120,7 @@ $uspjesnaPrijava = false;
             <label for="pphoto">Slika:</label>
             <div class="form-field">
             <input type="file" class="input-text" id="pphoto" 
-            value="'.$row['slika'].'" name="pphoto"/> <br><img src="' . UPLPATH . 
+            value="'.$row['slika'].'" name="pphoto" required/> <br><img src="' . UPLPATH . 
             $row['slika'] . '" width=100px>
             </div>
             </div>
@@ -154,11 +154,8 @@ $uspjesnaPrijava = false;
             <button type="submit" name="delete" value="Izbriši">Izbriši</button>
             </div>
             </form>
-            ';
+            ';}
             
-    
-        
-        
             if(isset($_POST['delete'])){
                 $id=$_POST['id'];
                 $query = "DELETE FROM vijesti WHERE id=$id ";
@@ -166,14 +163,13 @@ $uspjesnaPrijava = false;
                }
                
         
-    
-        
             if(isset($_POST['update'])){
             $picture = $_FILES['pphoto']['name'];
             $title=$_POST['title'];
             $about=$_POST['about'];
             $content=$_POST['content'];
             $category=$_POST['category'];
+
             if(isset($_POST['archive'])){
             $archive=1;
             }else{
@@ -189,7 +185,7 @@ $uspjesnaPrijava = false;
     
 
 
-        }
+        
         
         } else if ($uspjesnaPrijava == true && $admin == false) {
         
