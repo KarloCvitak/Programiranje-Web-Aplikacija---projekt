@@ -42,7 +42,9 @@ mysqli_close($dbc);
             <a href="index.php">HOME</a>
             <a href="kategorija.php?id=MÚSICA">MÚSICA</a>
             <a href="kategorija.php?id=DEPORTES">DEPORTES</a>
-            <a>ADMINISTRACIJA</a>
+            <a href="administracija.php">ADMINISTRACIJA</a>
+            <a href="registracija.php">REGISTER</a>
+            <a href="unos.php">UNOS</a>
         </nav>
 
     </header>

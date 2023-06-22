@@ -17,7 +17,7 @@
             <a href="kategorija.php?id=MÚSICA">MÚSICA</a>
             <a href="kategorija.php?id=DEPORTES">DEPORTES</a>
             <a href="administracija.php">ADMINISTRACIJA</a>
-            <a href="unos.html">UNOS</a>
+            <a href="registracija.php">REGISTRACIJA</a>
 
         </nav>
 
@@ -133,6 +133,7 @@ mysqli_close($dbc);}
  
  var slanjeForme = true;
  
+
 
  var poljeIme = document.getElementById("ime");
  var ime = document.getElementById("ime").value;

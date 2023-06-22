@@ -28,7 +28,7 @@ $row = mysqli_fetch_array($result)
             <a href="kategorija.php?id=MÚSICA">MÚSICA</a>
             <a href="kategorija.php?id=DEPORTES">DEPORTES</a>
             <a href="administracija.php">ADMINISTRACIJA</a>
-            <a href="unos.html">UNOS</a>
+            <a href="registracija.php">REGISTER</a>
 
         </nav>
 
