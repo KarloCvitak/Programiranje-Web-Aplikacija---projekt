@@ -6,7 +6,7 @@ body{
     font-family: "Montserrat", Helvetica, Arial, sans-serif;
     margin: 0;
     font-weight: 600;
- 
+  
 
 }
 
@@ -66,7 +66,7 @@ nav {
     background-color: #fff300;
     padding: 0.25rem 0.5rem;
    height:20px;
-   width:100%;
+   
     margin-top: 150px;
 
  }
@@ -96,8 +96,7 @@ section{
     margin: 0 auto;
     max-width: 800px;
  
-    display:flex;
-    flex-direction: column;
+  
 }
 
 article > img{
@@ -108,6 +107,10 @@ article > img{
 
 }
 
+section.clanak > img{
+    margin-top: 25px;
+    max-width:800px;
+}
 
 div > span{
 
@@ -120,6 +123,8 @@ div > span{
  h2 > a {
     color: #1b1e22;
     text-decoration: none;
+    font-size:18px;
+    font-weight: 700;
 
   }
   
@@ -131,21 +136,43 @@ div > span{
   }
 
 
-section#música > h1{
+  section#música > div.flex-container-line > h1{
 
     background-color: #F263A3;
     color:white;
-    padding:7px;
+    padding:5px;
+    max-width:fit-content;
+    
+}
+
+section#música >  div.flex-container-line > div.line{
+
+    background-color:#F263A3;
+    width:100%;
+    height:10px;
 
 }
 
+section#deportes >  div.flex-container-line  > div.line{
 
-section#deportes > h1{
+    background-color:#44C846;
+    width:100%;
+    height:10px;
+
+}
+
+section#deportes > div.flex-container-line > h1{
 
     background-color: #44C846;
     color:white;
     padding:7px;
+    max-width:fit-content;
+}
 
+.flex-container-line{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .flex-container{
@@ -170,7 +197,7 @@ article{
 
  form{
 
-    max-width: 700px;
+    max-width: 200px;
     display:flex;
     flex-direction: column;
     margin: 50px auto;
@@ -213,7 +240,7 @@ section.clanak > h2 {
   
     font-size: 10px;
         color:grey;
-
+    
 }
 
 
@@ -234,6 +261,16 @@ article.about{
 
     margin-top: 25px;
 
+}
+
+p.link a {
+    text-decoration: none;
+    color:#1b1e22;
+}
+
+p.link a:hover {
+    text-decoration: none;
+    color:#dbf800;
 }
 
 
@@ -273,3 +310,7 @@ article.about{
     }
 
 }
+
+
+
+

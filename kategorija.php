@@ -26,7 +26,7 @@ $query = "SELECT * FROM vijesti WHERE kategorija='$kategorija'";
             <a href="kategorija.php?id=MÚSICA">MÚSICA</a>
             <a href="kategorija.php?id=DEPORTES">DEPORTES</a>
             <a href="administracija.php">ADMINISTRACIJA</a>
-            <a href="unos.html">UNOS</a>
+            <a href="registracija.php">REGISTER</a>
         </nav>
 
     </header>
@@ -36,8 +36,11 @@ $query = "SELECT * FROM vijesti WHERE kategorija='$kategorija'";
     <section id="<?php echo mb_strtolower($kategorija, 'UTF-8'); ?>">
 
       
-<h1><?php echo $kategorija; ?></h1>
 
+<div class="flex-container-line">
+<h1><?php echo $kategorija; ?></h1>
+    <div class="line"></div>
+    </div>
 
 <div class="flex-container">
 <?php

@@ -1,8 +1,47 @@
 <?php
 include 'connect.php';
 define('UPLPATH', 'slike/');
-?>
 
+session_start();
+$uspjesnaPrijava = false;
+$admin = false;
+
+if (isset($_POST['prijava'])) {
+
+$prijavaImeKorisnika = $_POST['username'];
+$prijavaLozinkaKorisnika = $_POST['lozinka'];
+$sql = "SELECT korisnicko_ime, lozinka, razina FROM korisnik WHERE korisnicko_ime = ?";
+$stmt = mysqli_stmt_init($dbc);
+if (mysqli_stmt_prepare($stmt, $sql)) {
+mysqli_stmt_bind_param($stmt, 's', $prijavaImeKorisnika);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_store_result($stmt);
+}
+mysqli_stmt_bind_result($stmt, $imeKorisnika, $lozinkaKorisnika, 
+$levelKorisnika);
+mysqli_stmt_fetch($stmt);
+//Provjera lozinke
+if (password_verify($_POST['lozinka'], $lozinkaKorisnika) && 
+mysqli_stmt_num_rows($stmt) > 0) {
+$uspjesnaPrijava = true;
+
+if($levelKorisnika == 1) {
+$admin = true;
+}
+else {
+$admin = false;
+}
+
+$_SESSION['$username'] = $imeKorisnika;
+$_SESSION['$level'] = $levelKorisnika;
+} else {
+$uspjesnaPrijava = false;
+
+}
+
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +62,9 @@ define('UPLPATH', 'slike/');
             <a href="kategorija.php?id=MÚSICA">MÚSICA</a>
             <a href="kategorija.php?id=DEPORTES">DEPORTES</a>
             <a href="administracija.php">ADMINISTRACIJA</a>
-            <a href="unos.html">UNOS</a>
+           <?php if($uspjesnaPrijava == true && $admin == true ||
+            (isset($_SESSION['$username'])) && $_SESSION['$level'] == 1){echo '<a href="unos.html">UNOS</a>';}   ?>
+           <a href="registracija.php">REGISTER</a>
 
         </nav>
 
@@ -32,60 +73,27 @@ define('UPLPATH', 'slike/');
     
 
     <section>
-    <?php
-
-        $uspjesnaPrijava = false;
-
-        session_start();
-       
-        if (isset($_POST['prijava'])) {
       
-        $prijavaImeKorisnika = $_POST['username'];
-        $prijavaLozinkaKorisnika = $_POST['lozinka'];
-        $sql = "SELECT korisnicko_ime, lozinka, razina FROM korisnik WHERE korisnicko_ime = ?";
-        $stmt = mysqli_stmt_init($dbc);
-        if (mysqli_stmt_prepare($stmt, $sql)) {
-        mysqli_stmt_bind_param($stmt, 's', $prijavaImeKorisnika);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_store_result($stmt);
-        }
-        mysqli_stmt_bind_result($stmt, $imeKorisnika, $lozinkaKorisnika, 
-        $levelKorisnika);
-        mysqli_stmt_fetch($stmt);
-        //Provjera lozinke
-        if (password_verify($_POST['lozinka'], $lozinkaKorisnika) && 
-        mysqli_stmt_num_rows($stmt) > 0) {
-        $uspjesnaPrijava = true;
-      
-        if($levelKorisnika == 1) {
-        $admin = true;
-        }
-        else {
-        $admin = false;
-        }
-        //postavljanje session varijabli
-        $_SESSION['$username'] = $imeKorisnika;
-        $_SESSION['$level'] = $levelKorisnika;
-        } else {
-        $uspjesnaPrijava = false;
-        }
-        
-        }
-
-?>  
 
 
         <?php
+
+    if (isset($_POST['prijava'])) {
+    if($uspjesnaPrijava == false){
+    echo '<p class="link" ><a href="registracija.php">Morate se registrirat.</a></p>
+    <hr>';}}
+        
+    if((isset($_SESSION['$username'])) == true){
+        echo '<p class="link"><a  href="logout.php">Logout</a></p>
+        <hr>';}
+    
       
-        if (($uspjesnaPrijava == true && $admin == true) || 
-        (isset($_SESSION['$username'])) && $_SESSION['$level'] == 1) {
-        $query = "SELECT * FROM vijesti";
+        if (($uspjesnaPrijava == true && $admin == true) || (isset($_SESSION['$username'])) && $_SESSION['$level'] == 1) {
+        
+            $query = "SELECT * FROM vijesti";
         $result = mysqli_query($dbc, $query);
         while($row = mysqli_fetch_array($result)) {
-            $query = "SELECT * FROM vijesti";
-            $result = mysqli_query($dbc, $query);
-            while($row = mysqli_fetch_array($result)) {
-            
+          
             echo '
             <form enctype="multipart/form-data" action="" method="POST">
             <div class="form-item">
@@ -147,7 +155,7 @@ define('UPLPATH', 'slike/');
             </div>
             </form>
             ';
-            }
+            
     
         
         
@@ -189,6 +197,10 @@ define('UPLPATH', 'slike/');
         } else if (isset($_SESSION['$username']) && $_SESSION['$level'] == 0) {
         echo '<p>Bok ' . $_SESSION['$username'] . '! Uspješno ste prijavljeni, ali niste administrator.</p>';
         } else if ($uspjesnaPrijava == false) {
+
+
+
+        
         ?>
         
         <form action="" method="POST">

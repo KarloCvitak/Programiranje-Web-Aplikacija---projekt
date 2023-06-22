@@ -1,5 +1,7 @@
 <?php
+
 include 'connect.php';
+define('UPLPATH', 'slike/');
 $picture = $_FILES['pphoto']['name'];
 $title=$_POST['title'];
 $about=$_POST['about'];
@@ -46,7 +48,7 @@ $image = "slike/image.jpg";
             <a href="kategorija.php?id=MÚSICA">MÚSICA</a>
             <a href="kategorija.php?id=DEPORTES">DEPORTES</a>
             <a href="administracija.php">ADMINISTRACIJA</a>
-            <a href="unos.html">UNOS</a>
+            <a href="registracija.php">REGISTER</a>
 
         </nav>
 
@@ -57,10 +59,8 @@ $image = "slike/image.jpg";
         <section class="clanak">
 
 
-        <?php
-        echo "<img src='$image' alt='slika'>";
-        ?>
-    
+        <img src="slike/<?php echo $picture;?>">
+        
         <h1><?php
         echo $title;
         ?></h1>

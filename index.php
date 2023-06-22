@@ -23,19 +23,20 @@ define('UPLPATH', 'slike/');
             <a href="kategorija.php?id=MÚSICA">MÚSICA</a>
             <a href="kategorija.php?id=DEPORTES">DEPORTES</a>
             <a href="administracija.php">ADMINISTRACIJA</a>
-            <a href="unos.html">UNOS</a>
+            <a href="registracija.php">REGISTER</a>
 
         </nav>
 
     </header>
  
-
+    
     <!-- musica -->
     <section id="música">
 
-      
-        <h1>MÚSICA</h1>
-    
+    <div class="flex-container-line">
+    <h1>MÚSICA</h1>   
+    <div class="line"></div>
+    </div>
 
         <div class="flex-container">
         <?php
@@ -67,7 +68,10 @@ define('UPLPATH', 'slike/');
      <!-- deportes -->
     <section id="deportes">
 
-        <h1>DEPORTES</h1>
+    <div class="flex-container-line">
+    <h1>DEPORTES</h1>   
+    <div class="line"></div>
+    </div>
       
         <div class="flex-container">
         <?php
